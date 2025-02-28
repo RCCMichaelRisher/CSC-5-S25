@@ -1,10 +1,12 @@
 /*
 Author: Michael Risher
-Purpose: Show potential mistakes the computer can make
+Purpose: demo of setw
 */
 
 //system libraries
 #include <iostream>  //input/output library
+#include <iomanip> //formatting library
+#include <string>  //string library
 using namespace std; //using namespace standard
 
 //user libraries
@@ -19,25 +21,24 @@ int main( int argc, char **argv ) {
     //set random number seed
 
     //declare variables
-    signed short num1, num2;  //-32,678 +32,677
-    short result;
-    
+    int intVal = 1234;
+    float floatVal = 9.876;
+    string strVal = "michael";
     //initialize variables
-    num1 = 30000;
-    num2 = 20000;
 
     //map/process the inputs -> outputs
 
-    //add the numbers together 
-    result = num1 + num2; 
-    //when adding the short which has an upper bound 32768 we exceed that and go into the negative range in loop fashion
-    //retulting in result = -15536
-
     //display input/outputs
-
-    cout << num1 << " + " << num2 << " = " << result << endl;
+    cout << "(" << setw( 5 ) << intVal << ")" << endl;
+    cout << "(" << setw( 8 ) << floatVal << ")" << endl;
+    cout << "(" << setw( 11 ) << strVal << ")" << endl;
     //clean up memory, close files
 
     //exit the program
     return 0;
 }
+/*
+( 1234)
+(   9.876)
+(    michael)
+*/

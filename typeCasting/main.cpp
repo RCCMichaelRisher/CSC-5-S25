@@ -1,6 +1,6 @@
 /*
 Author: Michael Risher
-Purpose: Show potential mistakes the computer can make
+Purpose: demo of type casting
 */
 
 //system libraries
@@ -19,23 +19,19 @@ int main( int argc, char **argv ) {
     //set random number seed
 
     //declare variables
-    signed short num1, num2;  //-32,678 +32,677
-    short result;
-    
-    //initialize variables
-    num1 = 30000;
-    num2 = 20000;
 
+    //initialize variables
+    int num1 = 15;
+    int num2 = 32;
+    float result = num2 / num1;
     //map/process the inputs -> outputs
 
-    //add the numbers together 
-    result = num1 + num2; 
-    //when adding the short which has an upper bound 32768 we exceed that and go into the negative range in loop fashion
-    //retulting in result = -15536
-
     //display input/outputs
+    cout << num2 / static_cast<float>(num1) << endl;
+    cout << "result: " << result << endl;
 
-    cout << num1 << " + " << num2 << " = " << result << endl;
+    char ch = 7;
+    cout << ":" << ch << " is " << static_cast<int>( ch ) << endl;
     //clean up memory, close files
 
     //exit the program

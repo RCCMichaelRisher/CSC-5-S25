@@ -33,6 +33,9 @@ int main( int argc, char **argv ) {
     //initialize variables
     totalPennies = 0; //without this 0 we get weird numbers. because totalPennies is not always 0 to start with.
     //ask how many dollar you got
+    cout << "Enter dollars, quarters, dimes, nickels, and pennies with a space between each" << endl;
+    cin >> numDollars >> numQuarters >> numDimes >> numNickles >> numPennies; //cin multiple variables in one go
+    /*
     cout << "How many dollars do you have: ";
     cin >> numDollars;
 
@@ -47,6 +50,7 @@ int main( int argc, char **argv ) {
 
     cout << "How many pennies do you have: ";
     cin >> numPennies;
+    */
 
     //map/process the inputs -> outputs
     //add the dollar -> penny
