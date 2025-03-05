@@ -30,7 +30,7 @@ int main( int argc, char **argv ) {
 
     //add the numbers together 
     result = num1 + num2; 
-    //when adding the short which has an upper bound 32768 we exceed that and go into the negative range in loop fashion
+    //when adding the short which has an upper bound 32767 we exceed that and go into the negative range in loop fashion
     //retulting in result = -15536
 
     //display input/outputs
