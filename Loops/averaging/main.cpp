@@ -30,7 +30,7 @@ int main( int argc, char **argv ) {
     cout << "how many grades do you want to input: ";
     cin >> numGrades;
 
-    //valiadte numGrades isn't negative
+    //validate numGrades isn't negative
     while( numGrades <= 0 ){
         cout << "I gotta average something. Enter a postive number for numgrade" <<endl;
         cin >> numGrades;
