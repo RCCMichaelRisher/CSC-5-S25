@@ -56,7 +56,7 @@ int main( int argc, char **argv ) {
     //simulating paying for the loan
     float finalPayment = loan;
     cout << fixed << setprecision( 2 ) << showpoint;
-    
+//TODO left off here 
     for( int month = 1; month <= numPayments; month++) {
         
     }
