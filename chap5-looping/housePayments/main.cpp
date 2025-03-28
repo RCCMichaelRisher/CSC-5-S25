@@ -56,13 +56,32 @@ int main( int argc, char **argv ) {
     //simulating paying for the loan
     float finalPayment = loan;
     cout << fixed << setprecision( 2 ) << showpoint;
-//TODO left off here 
+
     for( int month = 1; month <= numPayments; month++) {
-        
+        float interest = ( ( finalPayment * interestRate + PENNY ) * 100 ) / 100.0f; //round up to penny shit back and forth
+
+        //update the remaining amount of the payment
+        finalPayment += interest - monthly;
     }
+
+    //add our laast month payment
+    finalPayment += monthly;
+
+
+    //how much did we paid
+    totalPaid = ( numPayments - 1 ) * monthly + finalPayment;
+    interestPaid = totalPaid - loan;
 
 
     //display input/outputs
+    int lw = 25, rw = 15;
+    cout << setw( lw ) << "Loan Amount: $" << right << setw( rw ) << loan << endl; 
+    cout << setw( lw ) << "Interest Rate: %" << right << setw( rw ) << interestRate * 100 << endl; 
+    cout << setw( lw ) << "Number of payments" << right << setw( rw ) << numPayments << endl; 
+    cout << setw( lw ) << "Monthly Payment $" << right << setw( rw ) << monthly << endl; 
+    cout << setw( lw ) << "Final Payment" << right << setw( rw ) << finalPayment << endl; 
+    cout << setw( lw ) << "Total Paid $" << right << setw( rw ) << totalPaid << endl; 
+    cout << setw( lw ) << "Interest Paid $" << right << setw( rw ) << interestPaid << endl; 
 
     //clean up memory, close files
 
