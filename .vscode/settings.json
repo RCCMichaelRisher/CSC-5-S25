@@ -6,6 +6,8 @@
         "ios": "cpp",
         "ostream": "cpp",
         "string": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "cstdlib": "cpp",
+        "xtr1common": "cpp"
     }
 }
