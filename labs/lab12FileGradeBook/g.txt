@@ -1,0 +1,7 @@
+Alice 87
+Bob 72
+Charlie 91
+Diana 65
+Evan 48
+Grace 100
+Frank 79
