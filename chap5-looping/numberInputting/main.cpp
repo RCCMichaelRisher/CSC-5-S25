@@ -33,11 +33,19 @@ int main( int argc, char **argv ) {
     sum = 0;
 
     //map/process the inputs -> outputs
+    //actually open the file
+    inputFile.open( fileName );
+
+    if( inputFile.is_open() ){
+        cout << "File opened\n";
+    } else{
+        cout << "File didn't open" << endl;
+    }
 
     if( inputFile.good() ){
-        // inputFile >> num;
+        inputFile >> num;
         while( inputFile >> num ){
-            cout << "Got :" << num << endl;
+            cout << "Got: " << num << endl;
             sum += num;
         };
         cout << "Sum is " << sum << endl;
