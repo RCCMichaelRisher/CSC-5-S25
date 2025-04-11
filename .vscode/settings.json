@@ -8,6 +8,10 @@
         "string": "cpp",
         "istream": "cpp",
         "cstdlib": "cpp",
-        "xtr1common": "cpp"
+        "xtr1common": "cpp",
+        "fstream": "cpp",
+        "xlocmes": "cpp",
+        "chrono": "cpp",
+        "variant": "cpp"
     }
 }

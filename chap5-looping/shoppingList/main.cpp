@@ -84,6 +84,7 @@ int main( int argc, char **argv ) {
             cout << "Your shopping list:" << endl;
             index = 1; //local only to this scope keep a number count of the items
             while( getline( inFile, itemName ) ){
+                //printed the shopping list
                 cout << index << ". " << itemName << endl;
                 index++;
             }
@@ -92,39 +93,49 @@ int main( int argc, char **argv ) {
             inFile.close();
 
             //check off items off the list
-            cout << "Enter the number of the item to check it off the list" << endl;
-            cin >> checkoff;
-            cin.ignore(); //removes the newline after the number
+            do{
+                cout << "Enter the number of the item to check it off the list (type 0 to finish)" << endl;
+                cin >> checkoff; //what item to check off
+                cin.ignore(); //clear the buffer of newlines
 
-            inFile.open( fileName );
-            //make a temp file to put the new updated list into
-            outFile.open( "temp.txt" );
-            if( !outFile ){
-                cout << "Error opening temp file" << endl;
-                return 1;
-            }
-
-            index = 1; //reset the index
-            while( getline( inFile, itemName ) ){
-                if( index != checkoff ){
-                    outFile << itemName << endl;
+                inFile.open( fileName );
+                //make a temp file to put the new updated list into
+                outFile.open( "temp.txt" );
+                if( !outFile.is_open() ){ //if it did not open we need to stop
+                    cout << "Error opening the temp" << endl;
+                    return 1;
                 }
-                index++;
-            }
 
-            //close the temp file
-            outFile.close();
-            //close in file
-            inFile.close();
+                index = 1;
+                while( getline( inFile, itemName ) ){ //reads from the shopping file line by line
+                    if( index != checkoff ){
+                        outFile << itemName << endl; //puts the everything but the checked item into the temp file
+                    }
+                    index++;
+                }
 
-            //remove the outdated shopping file
-            remove( fileName.c_str() );
-            //rename temp file to the new shopping list file fileName
-            rename( "temp.txt", fileName.c_str() );
+                //close the temp file
+                outFile.close();
+                //close in file //temp
+                inFile.close();
 
-            cout << "Updated List" << endl;
+                //remove the outdated shopping file
+                remove( fileName.c_str() );
+                //rename temp file to the new shopping list file fileName
+                rename( "temp.txt", fileName.c_str() );
 
+                //updated list
+                cout << "Updated List" << endl;
+                
+                inFile.open( fileName );
 
+                index = 1; //restart my index for the user to type what they want to remove
+                while( getline( inFile, itemName ) ) {
+                    cout << index++ << ". " << itemName << endl;
+                }
+
+                inFile.close(); //close the file now
+            } while( checkoff != 0 );
         }
     } while( choice != 3 );
 
