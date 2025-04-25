@@ -12,6 +12,8 @@
         "fstream": "cpp",
         "xlocmes": "cpp",
         "chrono": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "xstring": "cpp",
+        "ratio": "cpp"
     }
 }

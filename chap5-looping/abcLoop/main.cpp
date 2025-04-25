@@ -5,6 +5,7 @@ Purpose: practice sobriety test
 
 //system libraries
 #include <iostream>  //input/output library
+#include <cmath>
 using namespace std; //using namespace standard
 
 //user libraries
